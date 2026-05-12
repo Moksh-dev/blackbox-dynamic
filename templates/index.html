@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>BLACKBOX</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+BLACKBOX
+</h1>
+
+<p class="subtitle">
+fragments archived quietly.
+</p>
+
+<a href="/submit">
+<button>
+leave a fragment
+</button>
+</a>
+
+<br><br>
+
+{% for thought in thoughts %}
+
+<div class="card">
+
+{{ thought.content }}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

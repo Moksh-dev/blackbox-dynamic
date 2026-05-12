@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+dashboard
+</h1>
+
+<form method="POST" action="/add-thought">
+
+<textarea
+name="content"
+rows="5"
+placeholder="new thought">
+</textarea>
+
+<button type="submit">
+publish
+</button>
+
+</form>
+
+<br><br>
+
+<h2>
+pending submissions
+</h2>
+
+{% for submission in submissions %}
+
+<div class="card">
+
+<p>
+{{ submission.content }}
+</p>
+
+<br>
+
+<a href="/approve/{{ submission.id }}">
+<button>
+approve
+</button>
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
