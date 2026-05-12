@@ -1,9 +1,15 @@
+import cloudinary
+import cloudinary.uploader
 from flask import Flask, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-
+cloudinary.config(
+    cloud_name="dnvmvfr4w",
+    api_key="992199383868877",
+    api_secret="f54uwtrgJztfHQnSfewHyDgdmHM"
+)
 app.secret_key = "blackbox-secret"
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blackbox.db'
@@ -26,17 +32,27 @@ class Submission(db.Model):
 
     approved = db.Column(db.Boolean, default=False)
 
+class Image(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    image_url = db.Column(db.Text)
+
+    caption = db.Column(db.Text)
+
 @app.route('/')
 def home():
 
     thoughts = Thought.query.order_by(
         Thought.created.desc()).all()
 
+    images = Image.query.all()
+
     return render_template(
         'index.html',
-        thoughts=thoughts
+        thoughts=thoughts,
+        images=images
     )
-
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
 
@@ -96,6 +112,32 @@ def add_thought():
     new_thought = Thought(content=content)
 
     db.session.add(new_thought)
+
+    db.session.commit()
+
+    return redirect('/dashboard')
+
+@app.route('/upload-image', methods=['POST'])
+def upload_image():
+
+    if not session.get('admin'):
+
+        return redirect('/login')
+
+    file = request.files['image']
+
+    caption = request.form['caption']
+
+    result = cloudinary.uploader.upload(file)
+
+    image_url = result['secure_url']
+
+    new_image = Image(
+        image_url=image_url,
+        caption=caption
+    )
+
+    db.session.add(new_image)
 
     db.session.commit()
 

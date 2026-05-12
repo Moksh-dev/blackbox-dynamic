@@ -6,6 +6,10 @@
 <link rel="stylesheet"
 href="{{ url_for('static', filename='style.css') }}">
 
+<title>
+Dashboard
+</title>
+
 </head>
 
 <body>
@@ -16,12 +20,18 @@ href="{{ url_for('static', filename='style.css') }}">
 dashboard
 </h1>
 
+<!-- THOUGHT FORM -->
+
+<h2>
+publish thought
+</h2>
+
 <form method="POST" action="/add-thought">
 
 <textarea
 name="content"
 rows="5"
-placeholder="new thought">
+placeholder="write something cinematic...">
 </textarea>
 
 <button type="submit">
@@ -31,6 +41,40 @@ publish
 </form>
 
 <br><br>
+
+<!-- IMAGE FORM -->
+
+<h2>
+upload image
+</h2>
+
+<form
+method="POST"
+action="/upload-image"
+enctype="multipart/form-data">
+
+<input
+type="file"
+name="image"
+required>
+
+<br><br>
+
+<textarea
+name="caption"
+rows="3"
+placeholder="image caption">
+</textarea>
+
+<button type="submit">
+upload image
+</button>
+
+</form>
+
+<br><br>
+
+<!-- SUBMISSIONS -->
 
 <h2>
 pending submissions
@@ -47,9 +91,11 @@ pending submissions
 <br>
 
 <a href="/approve/{{ submission.id }}">
+
 <button>
 approve
 </button>
+
 </a>
 
 </div>

@@ -39,6 +39,31 @@ leave a fragment
 </div>
 
 {% endfor %}
+<br><br>
+
+<h2>
+gallery
+</h2>
+
+{% for image in images %}
+
+<div class="card">
+
+<img
+src="{{ image.image_url }}"
+style="
+width:100%;
+border-radius:20px;
+margin-bottom:15px;
+">
+
+<p>
+{{ image.caption }}
+</p>
+
+</div>
+
+{% endfor %}
 
 </div>
 
