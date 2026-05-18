@@ -15,7 +15,23 @@ Built as a personal digital space with premium visuals, hidden areas, anonymous 
 ![Status](https://img.shields.io/badge/Status-Live-success?style=for-the-badge)
 
 </div>
+<br>
 
+<div align="center">
+
+🚀 **Live Project**
+
+🔗 https://your-blackbox-link.com
+
+<br><br>
+
+<a href="https://mokee17.pythonanywhere.com/">
+
+<img src="https://img.shields.io/badge/Open-BLACKBOX-white?style=for-the-badge">
+
+</a>
+
+</div>
 ---
 
 ## ✨ Overview
