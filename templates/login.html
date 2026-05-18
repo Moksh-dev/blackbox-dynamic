@@ -3,18 +3,46 @@
 
 <head>
 
+<title>BLACKBOX Access</title>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
+href="{{url_for(
+'static',
+filename='style.css')}}">
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="noise"></div>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<div class="auth-wrap">
+
+<div class="auth-card">
+
+<p class="mini">
+
+PRIVATE ACCESS
+
+</p>
 
 <h1>
-vault access
+
+Enter BLACKBOX
+
 </h1>
+
+<p class="soft">
+
+Some archives aren't public.
+
+</p>
 
 <form method="POST">
 
@@ -23,13 +51,18 @@ type="password"
 name="password"
 placeholder="password">
 
-<button type="submit">
-enter
+<button>
+
+Enter Archive
+
 </button>
 
 </form>
 
 </div>
 
+</div>
+
 </body>
+
 </html>

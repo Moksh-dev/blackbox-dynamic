@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+
+Vault
+
+</title>
+
+<link rel="stylesheet"
+href="{{url_for(
+'static',
+filename='style.css')}}">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+
+BLACKBOX
+
+</div>
+
+</nav>
+
+<h1>
+
+Private Vault
+
+</h1>
+
+<br>
+
+{% for entry in entries %}
+
+<div class="card">
+
+<p>
+
+{{entry.content}}
+
+</p>
+
+</div>
+
+{% endfor %}
+
+</body>
+
+</html>

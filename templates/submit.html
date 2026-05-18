@@ -3,34 +3,69 @@
 
 <head>
 
+<title>Fragments</title>
+
 <link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
+href="{{url_for(
+'static',
+filename='style.css')}}">
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="noise"></div>
+
+<div class="orb orb1"></div>
+
+<div class="auth-wrap">
+
+<div class="auth-card">
+
+<p class="mini">
+
+ANONYMOUS
+
+</p>
 
 <h1>
-submit
+
+Leave a Fragment
+
 </h1>
 
-<form method="POST">
+<p class="soft">
+
+A sentence. A memory.
+Something that deserved
+to exist.
+
+</p>
+
+<form
+method="POST"
+action="/submit">
 
 <textarea
 name="content"
-rows="5"
-placeholder="leave something behind...">
+placeholder=
+"write here..."
+required>
+
 </textarea>
 
-<button type="submit">
-submit
+<button>
+
+Archive
+
 </button>
 
 </form>
 
 </div>
 
+</div>
+
 </body>
+
 </html>

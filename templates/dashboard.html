@@ -3,100 +3,103 @@
 
 <head>
 
-<link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
-
 <title>
-Dashboard
+
+BLACKBOX Control
+
 </title>
+
+<link rel="stylesheet"
+href="{{url_for(
+'static',
+filename='style.css')}}">
 
 </head>
 
 <body>
 
-<div class="container">
+<nav>
+
+<div class="logo">
+
+BLACKBOX
+
+</div>
+
+<div>
+
+<a href="/">Archive</a>
+
+<a href="/vault">
+
+Vault
+
+</a>
+
+</div>
+
+</nav>
 
 <h1>
-dashboard
+
+Control Room
+
 </h1>
 
-<!-- THOUGHT FORM -->
+<br>
+
+<div class="dashboard-grid">
+
+<div class="glass-panel">
 
 <h2>
-publish thought
-</h2>
 
-<form method="POST" action="/add-thought">
+Upload Memory
 
-<textarea
-name="content"
-rows="5"
-placeholder="write something cinematic...">
-</textarea>
-
-<button type="submit">
-publish
-</button>
-
-</form>
-
-<br><br>
-
-<!-- IMAGE FORM -->
-
-<h2>
-upload image
 </h2>
 
 <form
 method="POST"
 action="/upload-image"
-enctype="multipart/form-data">
+enctype=
+"multipart/form-data">
 
 <input
 type="file"
 name="image"
 required>
 
-<br><br>
-
 <textarea
 name="caption"
-rows="3"
-placeholder="image caption">
+placeholder=
+"caption">
+
 </textarea>
 
-<button type="submit">
-upload image
+<button>
+
+Upload
+
 </button>
 
 </form>
 
-<br><br>
+</div>
 
-<!-- SUBMISSIONS -->
+
+<div class="glass-panel">
 
 <h2>
-pending submissions
+
+Submissions
+
 </h2>
 
 {% for submission in submissions %}
 
 <div class="card">
 
-<p>
-{{ submission.content }}
-</p>
-
-<br>
-
-<a href="/approve/{{ submission.id }}">
-
-<button>
-approve
-</button>
-
-</a>
+{{submission.content}}
 
 </div>
 
@@ -104,5 +107,8 @@ approve
 
 </div>
 
+</div>
+
 </body>
+
 </html>

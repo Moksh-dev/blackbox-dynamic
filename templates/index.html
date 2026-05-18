@@ -5,61 +5,133 @@
 
 <title>BLACKBOX</title>
 
-<link rel="stylesheet"
-href="{{ url_for('static', filename='style.css') }}">
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<link
+rel="stylesheet"
+href="{{url_for(
+'static',
+filename='style.css')}}">
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="noise"></div>
 
-<h1>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<nav>
+
+<div class="logo">
+
 BLACKBOX
-</h1>
-
-<p class="subtitle">
-fragments archived quietly.
-</p>
-
-<a href="/submit">
-<button>
-leave a fragment
-</button>
-</a>
-
-<br><br>
-
-{% for thought in thoughts %}
-
-<div class="card">
-
-{{ thought.content }}
 
 </div>
 
-{% endfor %}
-<br><br>
+<div>
+
+<a href="/">Archive</a>
+
+<a href="/submit">Fragments</a>
+
+<a href="/login">Access</a>
+
+</div>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-left">
+
+<p class="mini">
+
+PRIVATE DIGITAL ARCHIVE
+
+</p>
+
+<h1>
+
+Some things deserve
+a quieter place.
+
+</h1>
+
+<p class="desc">
+
+Built for memories,
+fragments,
+photos,
+and moments
+that should not vanish.
+
+</p>
+
+</div>
+
+
+<div class="hero-right">
+
+<div class="glass-panel">
+
+<div class="tiny">
+
+LIVE ARCHIVE
+
+</div>
 
 <h2>
-gallery
+
+{{images|length}}
+
 </h2>
+
+<p>
+
+memories stored
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="gallery-title">
+
+<h2>
+
+Archive
+
+</h2>
+
+</section>
+
+<div class="masonry">
 
 {% for image in images %}
 
-<div class="card">
+<div class="memory-card">
 
-<img
-src="{{ image.image_url }}"
-style="
-width:100%;
-border-radius:20px;
-margin-bottom:15px;
-">
+<img src="{{image.image_url}}">
+
+<div class="overlay">
 
 <p>
-{{ image.caption }}
+
+{{image.caption}}
+
 </p>
+
+</div>
 
 </div>
 
@@ -67,5 +139,13 @@ margin-bottom:15px;
 
 </div>
 
+
+<script src="{{url_for(
+'static',
+filename='script.js')}}">
+
+</script>
+
 </body>
+
 </html>
