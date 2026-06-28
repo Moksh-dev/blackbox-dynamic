@@ -115,27 +115,30 @@ Archive
 
 </section>
 
-<div class="masonry">
+<div class="archive-grid">
+
 
 {% for image in images %}
 
-<div class="memory-card">
 
-<img src="{{image.image_url}}">
+<div class="archive-card">
 
-<div class="overlay">
 
-<p>
+<img 
+src="{{image.image_url}}"
+>
 
+
+<h3>
 {{image.caption}}
+</h3>
 
-</p>
-
-</div>
 
 </div>
+
 
 {% endfor %}
+
 
 </div>
 

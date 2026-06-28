@@ -4,9 +4,7 @@
 <head>
 
 <title>
-
 BLACKBOX Control
-
 </title>
 
 <link rel="stylesheet"
@@ -16,98 +14,201 @@ filename='style.css')}}">
 
 </head>
 
+
 <body>
+
 
 <nav>
 
 <div class="logo">
-
 BLACKBOX
-
 </div>
+
 
 <div>
 
-<a href="/">Archive</a>
+<a href="/">
+Archive
+</a>
+
 
 <a href="/vault">
-
 Vault
-
 </a>
 
 </div>
 
 </nav>
 
+
+
 <h1>
-
 Control Room
-
 </h1>
 
-<br>
+
 
 <div class="dashboard-grid">
 
+
+
+<!-- UPLOAD -->
+
 <div class="glass-panel">
 
+
 <h2>
-
 Upload Memory
-
 </h2>
+
+
 
 <form
 method="POST"
 action="/upload-image"
-enctype=
-"multipart/form-data">
+enctype="multipart/form-data">
+
 
 <input
 type="file"
 name="image"
 required>
 
+
+
 <textarea
 name="caption"
-placeholder=
-"caption">
+placeholder="Caption your memory...">
 
 </textarea>
 
+
+
 <button>
-
 Upload
-
 </button>
+
 
 </form>
 
+
 </div>
+
+
+
+
+
+
+<!-- IMAGE MANAGEMENT -->
+
+<div class="glass-panel">
+
+
+<h2>
+Archive Management
+</h2>
+
+
+
+{% for image in images %}
+
+
+<div class="card">
+
+
+<img
+src="{{image.image_url}}"
+style="
+width:100%;
+border-radius:20px;
+">
+
+
+
+<h3>
+
+{{image.caption}}
+
+</h3>
+
+
+
+
+<div class="admin-buttons">
+
+
+<a href="/edit-image/{{image.id}}">
+
+<button>
+✏ Edit
+</button>
+
+</a>
+
+
+
+<a href="/delete-image/{{image.id}}">
+
+<button>
+🗑 Delete
+</button>
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+
+
+
+<!-- SUBMISSIONS -->
 
 
 <div class="glass-panel">
 
+
 <h2>
-
 Submissions
-
 </h2>
+
+
 
 {% for submission in submissions %}
 
+
 <div class="card">
+
 
 {{submission.content}}
 
+
 </div>
+
 
 {% endfor %}
 
-</div>
+
 
 </div>
+
+
+
+</div>
+
+
 
 </body>
 
