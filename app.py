@@ -37,11 +37,11 @@ db = SQLAlchemy(app)
 
 cloudinary.config(
 
-    cloud_name="YOUR_CLOUD_NAME",
+    cloud_name="dnvmvfr4w",
 
-    api_key="YOUR_API_KEY",
+    api_key="992199383868877",
 
-    api_secret="YOUR_API_SECRET"
+    api_secret="f54uwtrgJztfHQnSfewHyDgdmHM"
 
 )
 
@@ -240,43 +240,29 @@ def dashboard():
     methods=["POST"]
 )
 
+@app.route('/upload-image', methods=['POST'])
 def upload_image():
 
+    try:
+        if 'image' not in request.files:
+            return "No image found"
 
-    if not session.get("admin"):
+        image = request.files['image']
 
-        return redirect("/login")
+        if image.filename == '':
+            return "No selected file"
 
+        path = os.path.join(
+            app.config['UPLOAD_FOLDER'],
+            image.filename
+        )
 
+        image.save(path)
 
-    file = request.files["image"]
+        return "Upload successful"
 
-
-    caption = request.form["caption"]
-
-
-
-    result = cloudinary.uploader.upload(file)
-
-
-
-    new_image = Image(
-
-        image_url=result["secure_url"],
-
-        caption=caption
-
-    )
-
-
-    db.session.add(new_image)
-
-    db.session.commit()
-
-
-
-    return redirect("/dashboard")
-
+    except Exception as e:
+        return str(e)
 
 
 
