@@ -37,6 +37,10 @@ Built as a personal digital space with premium visuals, hidden areas, anonymous 
 ## ✨ Overview
 
 BLACKBOX is not a typical gallery app.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8ef61e2f-5940-40d1-9c60-759bbb221e1e" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/4c0c0d3c-8fd9-4028-85dd-d9d6813d8eb1" />
+
+
 
 It was designed as a small private internet world where memories, anonymous thoughts, hidden vault entries and images can live in a more immersive way.
 
